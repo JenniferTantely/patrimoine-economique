@@ -1,0 +1,16 @@
+body{
+    margin: 5vh 5vw;
+}
+
+.possession-table{
+    width: 90% !important;
+}
+
+.input-group {
+    max-width: 20vw;
+}
+
+.button-patrimoine{
+    color: black !important;
+    background-color: rgb(218, 216, 216) !important;
+}
