@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 function App() {
   return (
-    <>
+    <div>
     <h1 className="my-3">Valeur du Patrimoine d'un étudiant</h1>
       <div>
         <form className="input-group">
@@ -49,7 +49,7 @@ function App() {
         </tbody>
       </table>
       <h2>Valeur du patrimoine : </h2>
-    </>
+    </div>
   );
 }
 
