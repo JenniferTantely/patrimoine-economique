@@ -220,7 +220,7 @@ export const updatePossession = async (req, res) => {
                     return item;
                 });
 
-                const writeResult = await writeFile(dataFilePath, );
+                const writeResult = await writeFile(dataFilePath, updatedData);
                 if (writeResult.status === "OK") {
                     res.json(possession);
                 } else {
