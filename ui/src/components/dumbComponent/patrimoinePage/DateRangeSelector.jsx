@@ -39,7 +39,7 @@ function DateRangeSelector({
           className="btn btn-secondary mt-4"
           onClick={handleValidateRange}
         >
-          Validate
+          Valider
         </button>
       </div>
     </div>

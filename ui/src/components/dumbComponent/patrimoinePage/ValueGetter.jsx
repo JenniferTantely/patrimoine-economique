@@ -8,7 +8,7 @@ function ValueGetter({ dateSelected, setDateSelected, handleGetValeur, valuePatr
       <div className="d-flex flex-row">
       <DatePicker selected={dateSelected} onChange={setDateSelected} />
       <button className="btn btn-secondary ms-2" onClick={() => handleGetValeur(dateSelected)}>
-        Validate
+        Valider
       </button>
       </div>
       <div className="d-flex flex-row">
