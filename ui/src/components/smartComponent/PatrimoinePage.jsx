@@ -51,7 +51,7 @@ function PatrimoinePage() {
       </div>
 
       <div>
-        <h4>Get Valeur Patrimoine</h4>
+        <h4>Obtenir la valeur du Patrimoine</h4>
         <ValueGetter 
           dateSelected = {dateSelected}
           setDateSelected = {setDateSelected}
