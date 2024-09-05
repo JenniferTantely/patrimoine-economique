@@ -47,7 +47,7 @@
                         "nom": "John Doe"
                     },
                     "libelle": "Alternance",
-                    "valeur": 600000,
+                    "valeur": 0,
                     "dateDebut": "2023-02-13T00:00:00.000Z",
                     "dateFin": null,
                     "tauxAmortissement": 0,
@@ -59,7 +59,7 @@
                         "nom": "John Doe"
                     },
                     "libelle": "Survie",
-                    "valeur": 300000,
+                    "valeur": 0,
                     "dateDebut": "2023-02-13T00:00:00.000Z",
                     "dateFin": null,
                     "tauxAmortissement": 0,
@@ -80,4 +80,3 @@
         }
     }
 ]
-
