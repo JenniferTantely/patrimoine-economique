@@ -78,7 +78,7 @@ export const createPossession = async (req, res) => {
                         personne,
                         possessionData.libelle,
                         possessionData.valeurConstante,
-                        new Date(possessionData.dateDebut),
+                        possessionData.dateDebut ? new Date(possessionData.dateDebut) : null,
                         possessionData.dateFin
                             ? new Date(possessionData.dateFin)
                             : null,
@@ -90,7 +90,7 @@ export const createPossession = async (req, res) => {
                     personne,
                     possessionData.libelle,
                     possessionData.valeur,
-                    new Date(possessionData.dateDebut),
+                    possessionData.dateDebut ? new Date(possessionData.dateDebut) : null,
                     possessionData.dateFin
                         ? new Date(possessionData.dateFin)
                         : null,
@@ -104,12 +104,14 @@ export const createPossession = async (req, res) => {
             )
             const possessionBody = req.body
             let newPossession
+
+            const currentDate = new Date().toISOString();
             if (req.body.jour) {
                 newPossession = new Flux(
                     possessionBody.possesseur,
                     possessionBody.libelle,
                     possessionBody.valeurConstante,
-                    new Date(possessionBody.dateDebut),
+                    possessionBody.dateDebut ? new Date(possessionBody.dateDebut) : currentDate,
                     possessionBody.dateFin ? new Date(possessionBody.dateFin) : null,
                     possessionBody.tauxAmortissement,
                     possessionBody.jour
@@ -119,7 +121,7 @@ export const createPossession = async (req, res) => {
                     possessionBody.possesseur,
                     possessionBody.libelle,
                     possessionBody.valeur,
-                    new Date(possessionBody.dateDebut),
+                    possessionBody.dateDebut ? new Date(possessionBody.dateDebut) : currentDate,
                     possessionBody.dateFin ? new Date(possessionBody.dateFin) : null,
                     possessionBody.tauxAmortissement
                 );
