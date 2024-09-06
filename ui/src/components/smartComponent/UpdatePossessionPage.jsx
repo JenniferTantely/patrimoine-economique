@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import UpdatePossessionForm from "../dumbComponent/UpdatePossessionForm";
+import { backendUrl } from "../../App";
 
 const UpdatePossessionPage = () => {
   const { libelle } = useParams();

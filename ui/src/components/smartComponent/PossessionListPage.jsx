@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PossessionList from "../dumbComponent/PossessionList";
+import { backendUrl } from "../../App";
 
 function PossessionListPage() {
   const [possessions, setPossessions] = useState([]);

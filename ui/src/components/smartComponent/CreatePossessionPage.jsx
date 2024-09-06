@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PossessionForm from "../dumbComponent/PossessionForm";
+import { backendUrl } from "../../App";
 
 function CreatePossessionPage() {
   const [libelle, setLibelle] = useState("");
