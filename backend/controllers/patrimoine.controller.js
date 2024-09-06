@@ -3,6 +3,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import Patrimoine from '../../models/Patrimoine.js';
 import Possession from '../../models/possessions/Possession.js';
+import Personne from '../../models/Personne.js';
+import Flux from '../../models/possessions/Flux.js';
 
 // chemin absolu
 const __filename = fileURLToPath(import.meta.url);
@@ -22,21 +24,41 @@ export const getValeurPatrimoineRange = async (req, res) => {
   const result = await readFile(dataFilePath);
 
   if (result.status === 'OK') {
+    const personneData = result.data.find(
+      (item) => item.model === "Personne"
+  ).data;
+  const personne = new Personne(personneData.nom);
     const patrimoineData = result.data.find(entry => entry.model === 'Patrimoine');
     if (patrimoineData) {
-      const possessions = patrimoineData.data.possessions.map(p =>
-        new Possession(
-          p.possesseur,
-          p.libelle,
-          p.valeur,
-          new Date(p.dateDebut),
-          p.dateFin ? new Date(p.dateFin) : null,
-          p.tauxAmortissement
-        )
-      );
+      const possessions = patrimoineData.data.possessions.map((possessionData) => {
+        if (possessionData.jour) {
+            return new Flux(
+                personne,
+                possessionData.libelle,
+                possessionData.valeurConstante,
+                possessionData.dateDebut ? new Date(possessionData.dateDebut) : null,
+                possessionData.dateFin
+                    ? new Date(possessionData.dateFin)
+                    : null,
+                possessionData.tauxAmortissement,
+                possessionData.jour
+            );
+        }
+        return new Possession(
+            personne,
+            possessionData.libelle,
+            possessionData.valeur,
+            possessionData.dateDebut ? new Date(possessionData.dateDebut) : null,
+            possessionData.dateFin
+                ? new Date(possessionData.dateFin)
+                : null,
+            possessionData.tauxAmortissement
+        );
+    }
+    );
 
       const patrimoine = new Patrimoine(
-        patrimoineData.data.possesseur,
+        personne,
         possessions
       );
 
@@ -69,21 +91,41 @@ export const getValeurPatrimoine = async (req, res) => {
 
   const result = await readFile(dataFilePath);
   if (result.status === 'OK') {
+    const personneData = result.data.find(
+      (item) => item.model === "Personne"
+  ).data;
+  const personne = new Personne(personneData.nom);
     const patrimoineData = result.data.find(entry => entry.model === 'Patrimoine');
     if (patrimoineData) {
-      const possessions = patrimoineData.data.possessions.map(p =>
-        new Possession(
-          p.possesseur,
-          p.libelle,
-          p.valeur,
-          new Date(p.dateDebut),
-          p.dateFin ? new Date(p.dateFin) : null,
-          p.tauxAmortissement
-        )
-      );
+      const possessions = patrimoineData.data.possessions.map((possessionData) => {
+        if (possessionData.jour) {
+            return new Flux(
+                personne,
+                possessionData.libelle,
+                possessionData.valeurConstante,
+                possessionData.dateDebut ? new Date(possessionData.dateDebut) : null,
+                possessionData.dateFin
+                    ? new Date(possessionData.dateFin)
+                    : null,
+                possessionData.tauxAmortissement,
+                possessionData.jour
+            );
+        }
+        return new Possession(
+            personne,
+            possessionData.libelle,
+            possessionData.valeur,
+            possessionData.dateDebut ? new Date(possessionData.dateDebut) : null,
+            possessionData.dateFin
+                ? new Date(possessionData.dateFin)
+                : null,
+            possessionData.tauxAmortissement
+        );
+    }
+    );
 
       const patrimoine = new Patrimoine(
-        patrimoineData.data.possesseur,
+        personne,
         possessions
       );
 
