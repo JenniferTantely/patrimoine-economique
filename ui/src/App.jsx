@@ -13,7 +13,7 @@ function App() {
           <div>
             <h1 className="text-light">Patrimoine Economique</h1>
             <div className="d-flex flex-row justify-content-around">
-              <Link to="/patrimoine" className="btn btn-light">
+              <Link to="/patrimoine" className="btn btn-light">%
                 Patrimoine
               </Link>
               <Link to="/possession" className="btn btn-light">
