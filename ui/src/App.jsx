@@ -6,6 +6,7 @@ import UpdatePossessionPage from "./components/smartComponent/UpdatePossessionPa
 import "./App.css";
 
 export const backendUrl = "https://patrimoine-economique-zcru.onrender.com"
+// export const backendUrl = "http://localhost:3000"
 
 function App() {
   return (
