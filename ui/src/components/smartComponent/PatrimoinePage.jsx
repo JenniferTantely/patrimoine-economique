@@ -57,7 +57,7 @@ function PatrimoinePage() {
           dateSelected = {dateSelected}
           setDateSelected = {setDateSelected}
           handleGetValeur={handleGetValeur} 
-          valuePatrimoine = {valuePatrimoine}
+          valuePatrimoine = {valuePatrimoine.toFixed(3)}
         />
       </div>
     </div>
