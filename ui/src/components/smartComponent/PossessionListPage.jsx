@@ -6,7 +6,7 @@ function PossessionListPage() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:3000/possession", {
+      const response = await fetch(backendUrl + "/possession", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

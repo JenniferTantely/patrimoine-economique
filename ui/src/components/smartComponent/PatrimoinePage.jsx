@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import ChartComponent from "../dumbComponent/patrimoinePage/ChartComponent";
 import DateRangeSelector from "../dumbComponent/patrimoinePage/DateRangeSelector";
 import ValueGetter from "../dumbComponent/patrimoinePage/ValueGetter";
+import { backendUrl } from "../../App";
 
 function PatrimoinePage() {
   const [dateDebut, setDateDebut] = useState(null);
@@ -17,7 +18,7 @@ function PatrimoinePage() {
 
   const handleValidateRange = async () => {
     // Appel à l'API pour obtenir la valeur du patrimoine sur la plage de dates
-    const response = await fetch("http://localhost:3000/patrimoine/range", {
+    const response = await fetch(backendUrl + "/patrimoine/range", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ type: "month", dateDebut, dateFin, jour}),
@@ -27,7 +28,7 @@ function PatrimoinePage() {
   };
 
   const handleGetValeur = async (date) => {
-    const response = await fetch(`http://localhost:3000/patrimoine/${date.toISOString()}`);
+    const response = await fetch(backendUrl + `/patrimoine/${date.toISOString()}`);
     const data = await response.json();
     setValuePatrimoine(data.valeur);
   };

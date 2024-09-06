@@ -11,7 +11,7 @@ const UpdatePossessionPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3000/possession/${libelle}`, {
+    const response = await fetch(backendUrl + `/possession/${libelle}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ dateFin, newLibelle }),

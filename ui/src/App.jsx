@@ -5,6 +5,8 @@ import CreatePossessionPage from "./components/smartComponent/CreatePossessionPa
 import UpdatePossessionPage from "./components/smartComponent/UpdatePossessionPage";
 import "./App.css";
 
+export const backendUrl = "https://patrimoine-economique-zcru.onrender.com"
+
 function App() {
   return (
     <Router>
@@ -13,7 +15,7 @@ function App() {
           <div>
             <h1 className="text-light">Patrimoine Economique</h1>
             <div className="d-flex flex-row justify-content-around">
-              <Link to="/patrimoine" className="btn btn-light">%
+              <Link to="/patrimoine" className="btn btn-light">
                 Patrimoine
               </Link>
               <Link to="/possession" className="btn btn-light">

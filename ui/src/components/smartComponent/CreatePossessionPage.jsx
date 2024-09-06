@@ -13,7 +13,7 @@ function CreatePossessionPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Envoyer les données au backend
-    const response = await fetch("http://localhost:3000/possession", {
+    const response = await fetch(backendUrl + "/possession", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ libelle, valeur, dateDebut, tauxAmortissement }),
