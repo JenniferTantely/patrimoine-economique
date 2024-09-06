@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { backendUrl } from "../../App";
 
 
 function PossessionList({ possessions, refetchPossessions }) {
 
   const closePossession = async (libelle) => {
     try {
-      const response = await fetch(`http://localhost:3000/possession/${libelle}/close`, {
+      const response = await fetch(backendUrl + `/possession/${libelle}/close`, {
         method: "Post",
         headers: { "Content-Type": "application/json" },
       });
