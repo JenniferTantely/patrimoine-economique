@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import '../css/patrimoine.css'
 
-const array = [1, 2, 3, 4, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const array = Array.from({length: 31}, (_, index)=> (index + 1));
 
 function DateRangeSelector({
   dateDebut,
